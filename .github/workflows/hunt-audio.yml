@@ -1,0 +1,24 @@
+name: Audio Facility Hunter
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: audio-hunter
+  cancel-in-progress: false
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 lxml
+      - run: python hunter.py --facility audio
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: "auto: audio finds"
+          file_pattern: "finds/audio-*.csv"

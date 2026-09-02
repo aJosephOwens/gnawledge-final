@@ -1,0 +1,15 @@
+{
+  "name": "gnawledge-prompts",
+  "version": "1.0.0",
+  "description": "Tailored useful prompt library for domain hunting and automation",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "prompts",
+    "ai",
+    "domain-hunting",
+    "automation",
+    "n8n"
+  ]
+}
